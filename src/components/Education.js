@@ -7,24 +7,36 @@ class Education extends Component {
   
     render() {
       return (
-        <div>
+        <div id="educational" className='flex-column'>
             <h2>Educational</h2>
+            <div className="flex">
+              <label htmlFor="institutionName">Institution Name:
+                <input type="" id="institutionName" />
+              </label>
 
-            <label htmlFor="institutionName">Institution Name:</label>
-            <input type="" id="institutionName" />
+              <label htmlFor="subject">Subject:
+                <input type="" id="subject" />
+              </label>
+            </div>
 
-            <label htmlFor="subject">Subject:</label>
-            <input type="" id="subject" />
 
-            <label htmlFor="eTitle">Title:</label>
-            <input type="" id="eTitle" />
+            <label htmlFor="eTitle">Title:
+              <input type="" id="eTitle" />
+            </label>
 
-            <label htmlFor="fromDate">from:</label>
-            <input type="date" name="" id="fromDate" />
+            <div className="flex">
+              <label htmlFor="fromDate">from:
+                <input type="date" name="" id="fromDate" />
+              </label>
 
-            <label htmlFor="toDate">to:</label>
-            <input type="date" name="" id="toDate" />
+              <label htmlFor="toDate">to:
+                <input type="date" name="" id="toDate" />
+              </label>
+            </div>
 
+            <button>Add Educational Info.</button>
+
+            <hr />
         </div>
       );
     }

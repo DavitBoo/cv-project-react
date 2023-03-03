@@ -24,6 +24,81 @@ h1{
   border-bottom: 3px solid #000;
 }
 
+hr{
+  border: 1px solid #000;
+}
+
+button{
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: none;
+  background-color: #000000b0;
+  color: #fff;
+  cursor: pointer;
+  margin-top: .5rem;
+}
+
+button:hover{
+  background-color: #00000079;
+}
+
+img{
+  border-radius: 100%;
+  background-color: rgb(69, 10, 136);
+  max-width: 200px;
+}
+
 #root{
   max-width: 767px;
 }
+
+.flex{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.flex-column{
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+
+
+/************ FORM ************/
+#personal-info, #educational, #professional-experience{
+  padding: .5rem 1rem 1.5rem 1rem;
+  background-color: #ffffff25;
+  margin: 1rem auto;
+}
+
+/* *** personal info *** */
+
+/* *** educational info *** */
+
+/* *** profesional info *** */
+
+
+/************ CV ************/
+.cv-container > *{
+  padding: 1rem;
+}
+
+.cv-container .personal-info{
+  background-color: #9fa2aabf;
+  flex: 2;
+}
+
+.cv-container h2{
+  background-color: #bb88d9;
+}
+
+.cv-container .experience{
+  background-color: rgba(255, 255, 255, 0.64);
+  flex: 3;
+}
+
+
+

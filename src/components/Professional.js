@@ -7,23 +7,36 @@ class Professional extends Component {
   
     render() {
       return (
-        <div>
+        <div id="professional-experience" className='flex-column'>
             <h2>Professional Experience</h2>
+            <div className="flex">
+              <label htmlFor="company">Company:
+                <input type="" id="company" />
+              </label>
 
-            <label htmlFor="company">Company:</label>
-            <input type="" id="company" />
+              <label htmlFor="position">Position:
+                <input type="" id="position" />
+              </label>
+            </div>
 
-            <label htmlFor="position">Position:</label>
-            <input type="" id="position" />
+            <div className="flex">
+              <label htmlFor="fromDate">from:
+                <input type="date" name="" id="fromDate" />
+              </label>
 
-            <label htmlFor="fromDate">from:</label>
-            <input type="date" name="" id="fromDate" />
+              <label htmlFor="toDate">to:
+                <input type="date" name="" id="toDate" />
+              </label>
 
-            <label htmlFor="toDate">to:</label>
-            <input type="date" name="" id="toDate" />
+            </div>
+            
+            <div className="flex-column">
+              <label htmlFor="mainTasks">Main Tasks:</label>
+              <textarea name="" id="" cols="30" rows="10"></textarea>
+            </div>
+            <button>Add Professionl Exp.</button>
+            <hr />
 
-            <label htmlFor="mainTasks">Main Tasks:</label>
-            <textarea name="" id="" cols="30" rows="10"></textarea>
         </div>
       );
     }
