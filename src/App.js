@@ -35,24 +35,18 @@ class App extends Component {
     }
     
     addToState = (prop, obj) => {
-        console.log(prop)
         this.setState({
           [prop]: [...this.state[prop], obj]
         })
       }
 
-    addProfessional = (obj) => {
-        this.setState({
-            professional: this.state.professional.concat(obj)
-        })
-    }
-
-    removeEducation = index => {
+    removeFromState = (prop, index) => {
         index = parseInt(index)
         this.setState({
-            educational: this.state.educational.filter((_, i) => i !== index)
+            [prop]: this.state[prop].filter((_, i) => i !== index)
         })
     }
+    
 
     onEducationFormChanges = (value, key, index) => {
         const updatedEducational = [...this.state.educational]
@@ -65,12 +59,6 @@ class App extends Component {
 
     
 
-    removeProfessioanl = index => {
-        index = parseInt(index)
-        this.setState({
-            professional: this.state.professional.filter((_, i) => i !== index)
-        })
-    }
 
     onProfessionalFormChanges = (value, key, index) => {
         const updatedProfessional = [...this.state.professional]
@@ -92,12 +80,12 @@ class App extends Component {
                     formChanges={this.onEducationFormChanges} 
                     educational={this.state.educational} 
                     addToState={this.addToState} 
-                    removeEducation={this.removeEducation}
+                    removeFromState={this.removeFromState}
                 />
                 <Professional 
                     professional={this.state.professional}
                     addToState={this.addToState} 
-                    removeProfessioanl={this.removeProfessioanl}
+                    removeFromState={this.removeFromState}
                     formChanges={this.onProfessionalFormChanges} 
                 />
                 <Skills

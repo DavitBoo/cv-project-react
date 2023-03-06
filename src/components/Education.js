@@ -19,13 +19,13 @@ class Education extends Component {
           toDate: '',
         }
 
-        this.props.addToState('educational',obj)
+        this.props.addToState('educational', obj)
 
     }
 
     clickRemove = e => {
       e.preventDefault();
-      this.props.removeEducation(e.target.dataset.key)
+      this.props.removeFromState('educational', e.target.dataset.key)
     }
 
 

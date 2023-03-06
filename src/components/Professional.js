@@ -24,7 +24,7 @@ class Professional extends Component {
 
   clickRemove = e => {
     e.preventDefault();
-    this.props.removeProfessional(e.target.dataset.key)
+    this.props.removeFromState('professional', e.target.dataset.key)
   }
 
 
