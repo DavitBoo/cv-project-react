@@ -3,6 +3,7 @@ import Cv from './components/Cv'
 import PersonalInfo from './components/PersonalInfo'
 import Education from './components/Education'
 import Professional from './components/Professional'
+import Skills from './components/Skills'
 
 
 class App extends Component {
@@ -20,7 +21,8 @@ class App extends Component {
                 picture: ""
               },
             educational: [],
-            professional: []
+            professional: [],
+            skills: []
         }
 
     }
@@ -31,6 +33,7 @@ class App extends Component {
                 {  ...this.state.personalInfo, [key]:value }
         })
     }
+    
 
     addEducation = (obj) => {
         this.setState({
@@ -96,6 +99,13 @@ class App extends Component {
                     removeProfessioanl={this.removeProfessioanl}
                     formChanges={this.onProfessionalFormChanges} 
                 />
+                <Skills
+                    skills={this.state.skills}
+                    addSkills={this.addSkills}
+                    removeSkills={this.removeSkills}
+                    formChanges={this.onSkillsFormChanges} 
+                />
+
               </form>
               <Cv data={this.state}/>
               <p>Create by <a href="https://github.com/DavitBoo">DavitBoo</a></p>

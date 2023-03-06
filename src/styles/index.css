@@ -76,7 +76,7 @@ img{
 
 
 /************ FORM ************/
-#personal-info, #educational, #professional-experience{
+#personal-info, #educational, #professional-experience, #skills{
   padding: .5rem 1rem 1.5rem 1rem;
   background-color: #ffffff25;
   margin: 1rem auto;
