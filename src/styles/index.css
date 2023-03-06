@@ -60,6 +60,17 @@ button.remove-skill{
   background-color: #a7000079;
 }
 
+label{
+  margin-top: .5rem;
+}
+
+input, textarea, select{
+  outline:0;
+  border: none;
+  margin-left: 0.5rem;
+  border-radius: 2px;
+}
+
 img{
   border-radius: 100%;
   background-color: rgb(69, 10, 136);
@@ -89,6 +100,15 @@ img{
   padding: .5rem 1rem 1.5rem 1rem;
   background-color: #ffffff25;
   margin: 1rem auto;
+}
+
+#educational > div > hr, #professional-experience > div > hr {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+#educational > div > button, #professional-experience > div > button{
+  margin-top: 2rem;
 }
 
 /* *** personal info *** */

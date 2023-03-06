@@ -98,8 +98,8 @@ class Professional extends Component {
                       data-key={i}
                     ></textarea>
                   </div>
-                  <hr />
                   <button className='remove-btn' data-key={i} onClick={this.clickRemove}>Remove</button>
+                  <hr />
                   
                 </div>
               )
