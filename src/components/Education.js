@@ -13,7 +13,7 @@ class Education extends Component {
         e.preventDefault();
         const obj = {
           institutionName: '',
-          subject: '',
+          // subject: '',
           eTitle: '',
           fromDate: '',
           toDate: '',
@@ -31,9 +31,7 @@ class Education extends Component {
 
     nameChange = e => {
       const { name, value } = e.target
-      console.log(name)
       const index = e.target.dataset.key
-      console.log(index)
       this.props.formChanges(value, name, index);
     }
   
@@ -46,17 +44,17 @@ class Education extends Component {
             return (
               <div key={i}>
                 <div className="flex">
-                  <label htmlFor="institutionName">Institution Name:
+                  <label htmlFor={"institutionName"+ i}>Institution Name:
                     <input 
                       type="" 
-                      id="institutionName" 
+                      id={"institutionName"+ i} 
                       onChange={this.nameChange}
                       name="institutionName" 
                       data-key={i}
                     />
                   </label>
 
-                  <label htmlFor="subject">Subject:
+                  {/* <label htmlFor="subject">Subject:
                     <input 
                       type="" 
                       id="subject" 
@@ -65,26 +63,38 @@ class Education extends Component {
                       data-key={i}
 
                     />
+                  </label> */}
+                  <label htmlFor={"eTitle"+ i}>Title:
+                    <input 
+                      type="" 
+                      id={"eTitle"+ i} 
+                      onChange={this.nameChange}
+                      name="eTitle" 
+                      data-key={i}
+                    />
                   </label>
                 </div>
 
-                <label htmlFor="eTitle">Title:
-                  <input 
-                    type="" 
-                    id="eTitle" 
-                    onChange={this.nameChange}
-                    name="eTitle" 
-                    data-key={i}
-                  />
-                </label>
 
                 <div className="flex">
-                  <label htmlFor="fromDate">from:
-                    <input type="date" name="" id="fromDate" />
+                  <label htmlFor={"fromDate"+ i}>from:
+                    <input 
+                      type="date" 
+                      name="fromDate" 
+                      id={"fromDate"+ i} 
+                      onChange={this.nameChange}
+                      data-key={i}
+                    />
                   </label>
 
-                  <label htmlFor="toDate">to:
-                    <input type="date" name="" id="toDate" />
+                  <label htmlFor={"toDate"+ i}>to:
+                    <input 
+                      type="date" 
+                      name="toDate" 
+                      id={"toDate"+ i}
+                      onChange={this.nameChange} 
+                      data-key={i}
+                    />
                   </label>
                 </div>
                 <button className='remove-btn' data-key={i} onClick={this.clickRemove}>Remove</button>
@@ -92,7 +102,7 @@ class Education extends Component {
               </div>
           )
       })):
-      ( <p>No educational information provided yet</p>)
+      ( <p>No educational information added yet</p> )
     }
       <button onClick={this.clickAdd}>Add Educational Info.</button>
     </div>

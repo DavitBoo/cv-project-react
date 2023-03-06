@@ -53,16 +53,49 @@ class App extends Component {
         };
         this.setState({ educational: updatedEducational });
       };
+
+    
+    addProfessional = (obj) => {
+        this.setState({
+            professional: this.state.professional.concat(obj)
+        })
+    }
+
+    removeProfessioanl = index => {
+        index = parseInt(index)
+        this.setState({
+            professional: this.state.professional.filter((_, i) => i !== index)
+        })
+    }
+
+    onProfessionalFormChanges = (value, key, index) => {
+        const updatedProfessional = [...this.state.professional];
+        updatedProfessional[index] = {
+          ...updatedProfessional[index],
+          [key]: value,
+        };
+        this.setState({ professional: updatedProfessional });
+      };
+      
     
     render() {
-
         return (
             <div className="App">
               <h1>CV Aplication</h1>
               <form>
                 <PersonalInfo onFormChanges={this.onFormChanges}/>
-                <Education formChanges={this.onEducationFormChanges} educational={this.state.educational} addEducation={this.addEducation} removeEducation={this.removeEducation}/>
-                <Professional professional={this.professional}/>
+                <Education 
+                    formChanges={this.onEducationFormChanges} 
+                    educational={this.state.educational} 
+                    addEducation={this.addEducation} 
+                    removeEducation={this.removeEducation}
+                />
+                <Professional 
+                    professional={this.state.professional}
+                    addProfessional={this.addProfessional}
+                    removeProfessioanl={this.removeProfessioanl}
+                    formChanges={this.onProfessionalFormChanges} 
+                />
               </form>
               <Cv data={this.state}/>
               <p>Create by <a href="https://github.com/DavitBoo">DavitBoo</a></p>
