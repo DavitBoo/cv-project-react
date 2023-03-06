@@ -19,8 +19,7 @@ class Professional extends Component {
         mainTasks: '',
       }
 
-      this.props.addProfessional(obj)
-
+      this.props.addToState('professional', obj)
   }
 
   clickRemove = e => {

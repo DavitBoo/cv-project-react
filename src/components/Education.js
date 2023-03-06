@@ -19,7 +19,7 @@ class Education extends Component {
           toDate: '',
         }
 
-        this.props.addEducation(obj)
+        this.props.addToState('educational',obj)
 
     }
 

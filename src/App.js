@@ -34,10 +34,16 @@ class App extends Component {
         })
     }
     
-
-    addEducation = (obj) => {
+    addToState = (prop, obj) => {
+        console.log(prop)
         this.setState({
-            educational: this.state.educational.concat(obj)
+          [prop]: [...this.state[prop], obj]
+        })
+      }
+
+    addProfessional = (obj) => {
+        this.setState({
+            professional: this.state.professional.concat(obj)
         })
     }
 
@@ -49,20 +55,15 @@ class App extends Component {
     }
 
     onEducationFormChanges = (value, key, index) => {
-        const updatedEducational = [...this.state.educational];
+        const updatedEducational = [...this.state.educational]
         updatedEducational[index] = {
           ...updatedEducational[index],
           [key]: value,
         };
-        this.setState({ educational: updatedEducational });
+        this.setState({ educational: updatedEducational })
       };
 
     
-    addProfessional = (obj) => {
-        this.setState({
-            professional: this.state.professional.concat(obj)
-        })
-    }
 
     removeProfessioanl = index => {
         index = parseInt(index)
@@ -72,12 +73,12 @@ class App extends Component {
     }
 
     onProfessionalFormChanges = (value, key, index) => {
-        const updatedProfessional = [...this.state.professional];
+        const updatedProfessional = [...this.state.professional]
         updatedProfessional[index] = {
           ...updatedProfessional[index],
           [key]: value,
         };
-        this.setState({ professional: updatedProfessional });
+        this.setState({ professional: updatedProfessional })
       };
       
     
@@ -90,12 +91,12 @@ class App extends Component {
                 <Education 
                     formChanges={this.onEducationFormChanges} 
                     educational={this.state.educational} 
-                    addEducation={this.addEducation} 
+                    addToState={this.addToState} 
                     removeEducation={this.removeEducation}
                 />
                 <Professional 
                     professional={this.state.professional}
-                    addProfessional={this.addProfessional}
+                    addToState={this.addToState} 
                     removeProfessioanl={this.removeProfessioanl}
                     formChanges={this.onProfessionalFormChanges} 
                 />
