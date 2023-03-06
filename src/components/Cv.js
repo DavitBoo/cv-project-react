@@ -5,6 +5,9 @@ export default class Cv extends Component {
     const {fullName, title, email, telephone, birthdate, description, picture} = this.props.data.personalInfo
     const educationalInfo = this.props.data.educational
     const professionalInfo = this.props.data.professional
+    const skillsInfo = this.props.data.skills
+
+
 
     return (
       <div className='cv-container flex'>
@@ -18,7 +21,24 @@ export default class Cv extends Component {
             <p>Birthdate: {birthdate}</p>
             <p>Description: {description}</p>
 
-            <h2>Skills</h2>
+            <div className="skills">
+              <h2>Skills</h2>
+              {skillsInfo.length > 0 ? (
+                skillsInfo.map((each, i) => {
+                  return (
+                    <div key={i} className="flex-column">
+                        <div className="flex">
+                          <p>{each.skill}</p>
+                          <div>
+                            <div className={"level"+each.level}></div>
+                          </div>
+                        </div>
+                    </div>
+                  )
+                }
+              )):(<p>No skills provided yet</p>) }
+            </div>
+
         </div>
         <div className="experience">
             <div className="studies">

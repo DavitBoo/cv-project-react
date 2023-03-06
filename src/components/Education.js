@@ -13,7 +13,6 @@ class Education extends Component {
         e.preventDefault();
         const obj = {
           institutionName: '',
-          // subject: '',
           eTitle: '',
           fromDate: '',
           toDate: '',
@@ -27,7 +26,6 @@ class Education extends Component {
       e.preventDefault();
       this.props.removeFromState('educational', e.target.dataset.key)
     }
-
 
     nameChange = e => {
       const { name, value } = e.target

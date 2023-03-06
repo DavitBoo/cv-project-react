@@ -47,7 +47,16 @@ button:hover{
   background-color: #930000b0;
 }
 
-.remove-btn:hover{
+
+button.remove-skill{
+  width: 30px;
+  height: 30px;
+  background-color: #930000b0;
+  padding: 0.5rem;
+  border-radius: 100%;
+}
+
+.remove-btn:hover, button.remove-skill:hover{
   background-color: #a7000079;
 }
 
@@ -88,6 +97,10 @@ img{
 
 /* *** profesional info *** */
 
+/* *** skills info *** */
+#skills .flex{
+  align-items: center;
+}
 
 /************ CV ************/
 .cv-container > *{
@@ -108,5 +121,62 @@ img{
   flex: 3;
 }
 
+.skills .flex{
+  align-items: center;
+  justify-content: space-between
+}
 
+.skills .flex > p{
+  flex:2;
+}
+
+.skills .flex > div {
+  flex: 3;
+}
+
+.level0, .level1, .level2, .level3, .level4{
+  height: 15px;
+  background-color: rgb(18, 199, 57);
+  transition: all .3s;
+}
+
+.level0{
+  width: 25px;
+}
+
+.level0::after{
+  content: '\2B50';
+}
+
+.level1{
+  width: 50px;
+}
+
+.level1::after{
+  content: '\2B50 \2B50';
+}
+
+.level2{
+  width: 75px;
+}
+
+.level2::after{
+  content: '\2B50 \2B50 \2B50';
+}
+
+.level3{
+  width: 100px;
+}
+
+.level3::after{
+  content: '\2B50 \2B50 \2B50 \2B50';
+}
+
+.level4{
+  width: 125px;
+}
+
+.level4::after{
+  content: '\2B50 \2B50 \2B50 \2B50 \2B50';
+}
 

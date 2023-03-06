@@ -56,9 +56,7 @@ class App extends Component {
         };
         this.setState({ educational: updatedEducational })
       };
-
-    
-
+        
 
     onProfessionalFormChanges = (value, key, index) => {
         const updatedProfessional = [...this.state.professional]
@@ -68,6 +66,15 @@ class App extends Component {
         };
         this.setState({ professional: updatedProfessional })
       };
+
+    onSkillsFormChanges = (value, key, index) => {
+    const updatedSkills = [...this.state.skills];
+    updatedSkills[index] = {
+        ...updatedSkills[index],
+        [key]: value,
+    };
+    this.setState({ skills: updatedSkills });
+    };
       
     
     render() {
@@ -90,8 +97,8 @@ class App extends Component {
                 />
                 <Skills
                     skills={this.state.skills}
-                    addSkills={this.addSkills}
-                    removeSkills={this.removeSkills}
+                    addToState={this.addToState} 
+                    removeFromState={this.removeFromState}
                     formChanges={this.onSkillsFormChanges} 
                 />
 
