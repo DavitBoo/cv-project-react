@@ -3,13 +3,12 @@ import React, { Component } from 'react'
 export default class Cv extends Component {
   render() {
     const {fullName, title, email, telephone, birthdate, description, picture} = this.props.data.personalInfo
-    let pictureUrl = './' + picture.split('\\')[2]
-    console.log(pictureUrl)
-
+    const educationalInfo = this.props.data.educational
 
     return (
       <div className='cv-container flex'>
         <div className="personal-info">
+      
             <img src={picture} alt="" />
             <h2>{fullName}</h2>
             <h3>{title}</h3>
@@ -23,9 +22,17 @@ export default class Cv extends Component {
         <div className="experience">
             <div className="studies">
                 <h2>Studies</h2>
-                
-                <h3>International University of La Rioja (UNIR)</h3>
-                <p>Master of Digital Marketing (10/2020 - Present)</p>
+                {educationalInfo.length > 0 ? (
+                  educationalInfo.map((each, i) => {
+                    console.log(each)
+                    return(
+                      <div key={i}>
+                        <h3>{each.institutionName}</h3>
+                        <p>{each.eTitle} (10/2020 - Present)</p>
+                      </div>
+                    )  
+                  })
+                ):(<p>No educational information provided yet</p>)}
 
             </div>
             <div className="professional">

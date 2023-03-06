@@ -10,15 +10,25 @@ class PersonalInfo extends Component {
         email: '',
         phoneNumber: '',
         birthDate: '',
-        description: ''
+        description: '',
+        pictureUrl: ''
       };
 
       this.nameChange = this.nameChange.bind(this);
     }
 
     nameChange(e){
-      console.log(e.target.name)
-      this.props.onFormChanges(e.target.value, e.target.name);
+      const { name, value, files } = e.target
+
+      if (name === 'picture'){
+        const reader = new FileReader();
+        reader.onload = () => {
+          this.setState({ pictureUrl: reader.result });
+          this.props.onFormChanges(reader.result, name);
+        };
+        reader.readAsDataURL(files[0]); 
+      }
+      else this.props.onFormChanges(value, name);
     }
 
 
@@ -93,8 +103,6 @@ class PersonalInfo extends Component {
                 ></textarea>
                 
             </div>
-            
-
         </div>
       );
     }

@@ -43,10 +43,18 @@ button:hover{
   background-color: #00000079;
 }
 
+.remove-btn{
+  background-color: #930000b0;
+}
+
+.remove-btn:hover{
+  background-color: #a7000079;
+}
+
 img{
   border-radius: 100%;
   background-color: rgb(69, 10, 136);
-  max-width: 200px;
+  max-width: 180px;
 }
 
 #root{

@@ -3,7 +3,6 @@ import Cv from './components/Cv'
 import PersonalInfo from './components/PersonalInfo'
 import Education from './components/Education'
 import Professional from './components/Professional'
-// import Form from './components/Form'
 
 
 class App extends Component {
@@ -20,18 +19,40 @@ class App extends Component {
                 description: "",
                 picture: ""
               },
-            
+            educational: [],
+            professional: []
         }
 
     }
     
     onFormChanges =(value, key) => {
-        console.log(key)
         this.setState({
             personalInfo: 
                 {  ...this.state.personalInfo, [key]:value }
         })
     }
+
+    addEducation = (obj) => {
+        this.setState({
+            educational: this.state.educational.concat(obj)
+        })
+    }
+
+    removeEducation = index => {
+        index = parseInt(index)
+        this.setState({
+            educational: this.state.educational.filter((_, i) => i !== index)
+        })
+    }
+
+    onEducationFormChanges = (value, key, index) => {
+        const updatedEducational = [...this.state.educational];
+        updatedEducational[index] = {
+          ...updatedEducational[index],
+          [key]: value,
+        };
+        this.setState({ educational: updatedEducational });
+      };
     
     render() {
 
@@ -39,9 +60,9 @@ class App extends Component {
             <div className="App">
               <h1>CV Aplication</h1>
               <form>
-                <PersonalInfo personalInfo={this.state.personalInfo} onFormChanges={this.onFormChanges}/>
-                <Education/>
-                <Professional/>
+                <PersonalInfo onFormChanges={this.onFormChanges}/>
+                <Education formChanges={this.onEducationFormChanges} educational={this.state.educational} addEducation={this.addEducation} removeEducation={this.removeEducation}/>
+                <Professional professional={this.professional}/>
               </form>
               <Cv data={this.state}/>
               <p>Create by <a href="https://github.com/DavitBoo">DavitBoo</a></p>
