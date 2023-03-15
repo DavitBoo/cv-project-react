@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 
 export default function PersonalInfo(props) {
-  const [pictureUrl, setPictureUrl] = useState('')
 
   const nameChange = (e) => {
     const { name, value, files } = e.target
@@ -10,7 +9,6 @@ export default function PersonalInfo(props) {
     if (name === 'picture'){
       const reader = new FileReader();
       reader.onload = () => {
-        setPictureUrl(reader.result)
         props.onFormChanges(reader.result, name);
       };
       reader.readAsDataURL(files[0]); 
