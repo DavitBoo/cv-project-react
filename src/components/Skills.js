@@ -1,40 +1,33 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class Skills extends Component {
-    constructor(props) {
-        super(props);
+export default function Skills(props) {
+    // const [skills, setSkills] = useState(props.skills)
 
-        this.clickAdd = this.clickAdd.bind(this);
-        this.clickRemove = this.clickRemove.bind(this);
-        this.nameChange = this.nameChange.bind(this);
-    }
-
-    clickAdd = e => {
+    const clickAdd = e => {
         e.preventDefault();
         const obj = {
           skills: '',
           level: 0,
         }
-        this.props.addToState('skills', obj)
-    }
-    
-    clickRemove = e => {
-        e.preventDefault();
-        this.props.removeFromState('skills', e.target.dataset.key)
+        props.addToState('skills', obj)
     }
 
-    nameChange = e => {
+    const clickRemove = e => {
+        e.preventDefault();
+        props.removeFromState('skills', e.target.dataset.key)
+    }
+
+    const nameChange = e => {
         const { name, value } = e.target
         const index = e.target.dataset.key
-        this.props.formChanges(value, name, index);
-      }
+        props.formChanges(value, name, index);
+    }
 
-    render() {
-        return (
+    return (
         <div id="skills" className='flex-column'>
             <h2>Skills</h2>
-            { this.props.skills.length > 0 ?
-                (this.props.skills.map((_, i) => {
+            { props.skills.length > 0 ?
+                (props.skills.map((_, i) => {
                     return (
                         <div key={i}>
                             <div className="flex">
@@ -42,14 +35,14 @@ export default class Skills extends Component {
                                     <input 
                                     type="" 
                                     id={"skill"+ i} 
-                                    onChange={this.nameChange}
+                                    onChange={nameChange}
                                     name="skill" 
                                     data-key={i}
                                     />
                                 </label>
                         
                                 <label htmlFor={"level"+ i}>Level: 
-                                    <select name="level" id={"level"+ i} data-key={i} onChange={this.nameChange}>
+                                    <select name="level" id={"level"+ i} data-key={i} onChange={nameChange}>
                                         <option value="0">Novice</option>
                                         <option value="1">Advanced Beginner</option>
                                         <option value="2">Competent</option>
@@ -57,16 +50,17 @@ export default class Skills extends Component {
                                         <option value="4">Expert</option>
                                     </select>
                                 </label>
-                                <button className='remove-skill' data-key={i} onClick={this.clickRemove}>X</button>
+                                <button className='remove-skill' data-key={i} onClick={clickRemove}>X</button>
                                 </div>
                         </div>
                     )
                 }
               )):<p>No skills information added yet</p>
             } 
-            <button onClick={this.clickAdd}>Add new skill</button>
+            <button onClick={clickAdd}>Add new skill</button>
         </div>
         )
-    }
 }
+
+
 
