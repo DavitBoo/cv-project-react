@@ -1,13 +1,10 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class Cv extends Component {
-  render() {
-    const {fullName, title, email, telephone, birthdate, description, picture} = this.props.data.personalInfo
-    const educationalInfo = this.props.data.educational
-    const professionalInfo = this.props.data.professional
-    const skillsInfo = this.props.data.skills
-
-
+export default function Cv(props) {
+    const {fullName, title, email, telephone, birthdate, description, picture} = props.data.personalInfo
+    const educationalInfo = props.data.educational
+    const professionalInfo = props.data.professional
+    const skillsInfo = props.data.skills
 
     return (
       <div className='cv-container flex'>
@@ -80,5 +77,5 @@ export default class Cv extends Component {
         </div>
       </div>
     )
-  }
 }
+
