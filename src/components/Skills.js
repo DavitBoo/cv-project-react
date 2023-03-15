@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function Skills(props) {
-    // const [skills, setSkills] = useState(props.skills)
+    const {skills} = props
 
     const clickAdd = e => {
         e.preventDefault();
@@ -38,11 +38,12 @@ export default function Skills(props) {
                                     onChange={nameChange}
                                     name="skill" 
                                     data-key={i}
+                                    value={skills[i].skill}
                                     />
                                 </label>
                         
                                 <label htmlFor={"level"+ i}>Level: 
-                                    <select name="level" id={"level"+ i} data-key={i} onChange={nameChange}>
+                                    <select name="level" id={"level"+ i} data-key={i} value={skills[i].level} onChange={nameChange}>
                                         <option value="0">Novice</option>
                                         <option value="1">Advanced Beginner</option>
                                         <option value="2">Competent</option>

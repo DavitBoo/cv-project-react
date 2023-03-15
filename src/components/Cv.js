@@ -58,7 +58,6 @@ export default function Cv(props) {
                 <h2>Professional Experience</h2>
                 {professionalInfo.length > 0 ? (
                   professionalInfo.map((each, i) => {
-                    console.log(each)
                     return(
                       <div key={i}>
                         <h3>{each.position}</h3>

@@ -1,6 +1,8 @@
 import React from 'react';
 
 export default function Education (props) {
+  const {educational} = props
+  
   const clickAdd = e => {
     e.preventDefault();
     const obj = {
@@ -15,6 +17,7 @@ export default function Education (props) {
 
   const clickRemove = e => {
     e.preventDefault();
+    console.log(e.target.dataset.key)
     props.removeFromState('educational', e.target.dataset.key)
   }
 
@@ -39,6 +42,7 @@ export default function Education (props) {
                   onChange={nameChange}
                   name="institutionName" 
                   data-key={i}
+                  value={educational[i].institutionName}
                 />
               </label>
 
@@ -59,6 +63,7 @@ export default function Education (props) {
                   onChange={nameChange}
                   name="eTitle" 
                   data-key={i}
+                  value={educational[i].eTitle}
                 />
               </label>
             </div>
@@ -72,6 +77,7 @@ export default function Education (props) {
                   id={"fromDate"+ i} 
                   onChange={nameChange}
                   data-key={i}
+                  value={educational[i].fromDate}
                 />
               </label>
 
@@ -82,6 +88,7 @@ export default function Education (props) {
                   id={"toDate"+ i}
                   onChange={nameChange} 
                   data-key={i}
+                  value={educational[i].toDate}
                 />
               </label>
             </div>

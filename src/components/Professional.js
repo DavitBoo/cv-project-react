@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
 export default function Professional(props) {
+  const {professional} = props
+
   const clickAdd = e => {
     e.preventDefault();
     const obj = {
@@ -43,6 +45,7 @@ return (
                     id={"company" + i} 
                     onChange={nameChange}
                     data-key={i}
+                    value={professional[i].company}
                   />
                 </label>
   
@@ -53,6 +56,7 @@ return (
                     id={"position" + i} 
                     onChange={nameChange}
                     data-key={i}
+                    value={professional[i].position}
                   />
                 </label>
               </div>
@@ -65,6 +69,8 @@ return (
                     id={"fromDate" + i} 
                     onChange={nameChange}
                     data-key={i}
+                    value={professional[i].fromDate}
+
                   />
                 </label>
   
@@ -75,6 +81,8 @@ return (
                     id={"toDate" + i}
                     onChange={nameChange}
                     data-key={i} 
+                    value={professional[i].toDate}
+
                   />
                 </label>
               </div>
@@ -88,6 +96,7 @@ return (
                   rows="10"
                   onChange={nameChange}
                   data-key={i}
+                  value={professional[i].mainTasks}
                 ></textarea>
               </div>
               <button className='remove-btn' data-key={i} onClick={clickRemove}>Remove</button>
